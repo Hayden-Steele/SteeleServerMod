@@ -1,11 +1,10 @@
 {
-  "required": true,
+  "required": false,
   "minVersion": "0.8",
   "package": "hsteele.steeleservermod.mixins",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "AFKMixins.PhantomSpawnerMixin",
-    "AFKMixins.SleepManagerMixin"
+    "AFKMixins.PhantomSpawnerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

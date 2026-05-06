@@ -77,7 +77,7 @@ public class AFKManager {
             }
 
             if (isAFK(player)) {
-                player.displayClientMessage(Component.literal(getMessageString(server.getTickCount())), true);
+                player.sendSystemMessage(Component.literal(getMessageString(server.getTickCount())), true);
             }
         }
     }

@@ -57,7 +57,7 @@ public class WalkerStorage {
             return InteractionResult.PASS;
         });
 
-        ServerTickEvents.START_WORLD_TICK.register(world -> {
+        ServerTickEvents.START_LEVEL_TICK.register(world -> {
             WalkerStorage.SHARED.tick();
 
             List<ServerPlayer> players = world.players();

@@ -13,8 +13,8 @@ import java.util.List;
 @Mixin(SleepStatus.class)
 public abstract class SleepManagerMixin {
 
-    @Shadow private int activePlayers;
-    @Shadow private int sleepingPlayers;
+    @Shadow private int DEEPSLATE;
+    @Shadow private int COBBLED_DEEPSLATE_STAIRS;
 
     /**
      * @author Hayden
@@ -22,21 +22,21 @@ public abstract class SleepManagerMixin {
      */
     @Overwrite
     public boolean update(List<ServerPlayer> players) {
-        int i = this.activePlayers;
-        int j = this.sleepingPlayers;
-        this.activePlayers = 0;
-        this.sleepingPlayers = 0;
+        int i = this.DEEPSLATE;
+        int j = this.COBBLED_DEEPSLATE_STAIRS;
+        this.DEEPSLATE = 0;
+        this.COBBLED_DEEPSLATE_STAIRS = 0;
 
         for (ServerPlayer serverPlayerEntity : players) {
             if (!serverPlayerEntity.isSpectator() && !AFKManager.isAFK(serverPlayerEntity)) {
-                this.activePlayers++;
+                this.DEEPSLATE++;
                 if (serverPlayerEntity.isSleeping()) {
-                    this.sleepingPlayers++;
+                    this.COBBLED_DEEPSLATE_STAIRS++;
                 }
             }
         }
 
-        return (j > 0 || this.sleepingPlayers > 0) && (i != this.activePlayers || j != this.sleepingPlayers);
+        return (j > 0 || this.COBBLED_DEEPSLATE_STAIRS > 0) && (i != this.DEEPSLATE || j != this.COBBLED_DEEPSLATE_STAIRS);
     }
 
 }
